@@ -6,7 +6,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use("/contact", contactsRoutes);
+app.use("/", contactsRoutes);
 
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);

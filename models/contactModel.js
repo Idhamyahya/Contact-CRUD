@@ -18,3 +18,10 @@ export const getContact = () => {
   const contact = getData();
   return contact;
 };
+
+// ambil data by id
+export const getContactById = (id) => {
+  const contacts = getData();
+  const contact = contacts.find((contact) => contact.id === Number(id));
+  return contact;
+};

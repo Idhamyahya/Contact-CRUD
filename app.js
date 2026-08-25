@@ -1,11 +1,12 @@
 import express from "express";
+import contactsRoutes from "./routes/contactRoutes.js";
 
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello word");
-});
+app.use(express.json());
+
+app.use("/contact", contactsRoutes);
 
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);

@@ -38,3 +38,21 @@ export const deleteContact = (id) => {
   fs.writeFileSync(filePath, JSON.stringify(contacts, null, 2));
   return deletedContact;
 };
+
+// update data contact
+export const updateContact = (id, newData) => {
+  const contacts = getData();
+  const index = contacts.findIndex((contact) => contact.id === Number(id));
+  if (index === -1) {
+    console.log("Data tidak ditemukan");
+    return null;
+  }
+  contacts[index] = {
+    ...contacts[index],
+    ...newData,
+  };
+  fs.writeFileSync(filePath, JSON.stringify(contacts, null, 2));
+  console.log(contacts[index]);
+
+  return contacts[index];
+};

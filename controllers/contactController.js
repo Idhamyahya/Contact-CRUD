@@ -1,4 +1,5 @@
 import {
+  addContact,
   deleteContact,
   getContact,
   getContactById,
@@ -45,4 +46,12 @@ export const updateContact_C = (req, res) => {
     message: "Kontak berhasil di update",
     data: updatedContact,
   });
+};
+
+export const addContact_C = (req, res) => {
+  const newData = req.body;
+  const newContact = addContact(newData);
+  res
+    .status(200)
+    .json({ message: "Kontak berhasil ditambahkan", data: newContact });
 };

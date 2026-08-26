@@ -16,6 +16,7 @@ const getData = () => {
 // ambil semua data
 export const getContact = () => {
   const contact = getData();
+  console.log(contact);
   return contact;
 };
 
@@ -55,4 +56,24 @@ export const updateContact = (id, newData) => {
   console.log(contacts[index]);
 
   return contacts[index];
+};
+
+// tambah data
+export const addContact = (newData) => {
+  const contacts = getData();
+  const newId =
+    contacts.length > 0
+      ? Math.max(...contacts.map((contact) => contact.id)) + 1
+      : 1;
+  const newContact = {
+    id: newId,
+    ...newData,
+  };
+
+  contacts.push(newContact);
+  fs.writeFileSync(filePath, JSON.stringify(contacts, null, 2));
+  console.log("Data ditambahkan");
+  console.log(newContact);
+
+  return newContact;
 };

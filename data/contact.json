@@ -9,5 +9,11 @@
     "id": 2,
     "nama": "Anjing",
     "phone": "088123457"
+  },
+  {
+    "id": 3,
+    "nama": "Yanto",
+    "phone": "08642567891",
+    "email": "yanto@gmail.com"
   }
 ]

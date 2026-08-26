@@ -1,12 +1,13 @@
 [
   {
     "id": 1,
-    "nama": "Andi",
-    "phone": "089123457"
+    "nama": "Yanti",
+    "phone": "08644567891",
+    "email": "yanti@gmail.com"
   },
   {
     "id": 2,
-    "nama": "Anji",
+    "nama": "Anjing",
     "phone": "088123457"
   }
 ]

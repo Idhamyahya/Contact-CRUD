@@ -25,3 +25,34 @@ export const getContactById = (id) => {
   const contact = contacts.find((contact) => contact.id === Number(id));
   return contact;
 };
+
+// hapus contact
+export const deleteContact = (id) => {
+  const contacts = getData();
+  const index = contacts.findIndex((contact) => contact.id === Number(id));
+  if (index === -1) {
+    return null;
+  }
+  const deletedContact = contacts[index];
+  contacts.splice(index, 1);
+  fs.writeFileSync(filePath, JSON.stringify(contacts, null, 2));
+  return deletedContact;
+};
+
+// update data contact
+export const updateContact = (id, newData) => {
+  const contacts = getData();
+  const index = contacts.findIndex((contact) => contact.id === Number(id));
+  if (index === -1) {
+    console.log("Data tidak ditemukan");
+    return null;
+  }
+  contacts[index] = {
+    ...contacts[index],
+    ...newData,
+  };
+  fs.writeFileSync(filePath, JSON.stringify(contacts, null, 2));
+  console.log(contacts[index]);
+
+  return contacts[index];
+};
